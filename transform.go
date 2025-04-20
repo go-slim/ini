@@ -99,7 +99,7 @@ func transformEnvironment(val string) string {
 		key := strings.TrimSpace(parts[0])
 		def := ""
 		if len(parts) == 2 {
-			def = strings.TrimSpace(parts[1])
+			def = trimQuote(strings.TrimSpace(parts[1]))
 		}
 
 		// Get the value from environment.
@@ -114,4 +114,11 @@ func transformEnvironment(val string) string {
 	}
 
 	return val
+}
+
+func trimQuote(s string) string {
+	if hasSurroundedQuote(s, '\'') || hasSurroundedQuote(s, '"') {
+		return s[1 : len(s)-1]
+	}
+	return s
 }
