@@ -1,6 +1,7 @@
 package ini
 
 import (
+	"context"
 	"fmt"
 	"slices"
 	"strings"
@@ -14,6 +15,11 @@ type Section struct {
 	keyList  []string
 	keysHash map[string]string
 	Comment  string
+}
+
+func (s *Section) Open(ctx context.context.Context)  (Servlet, error) {
+	//TODO implement me
+	panic("implement me")
 }
 
 func newSection(m *Manager, name string) *Section {
