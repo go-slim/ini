@@ -2,7 +2,6 @@ package ini
 
 import (
 	"bytes"
-	"context"
 	"fmt"
 	"slices"
 	"strconv"
@@ -18,11 +17,6 @@ type Key struct {
 	Comment         string
 	isAutoIncrement bool
 	isBooleanType   bool
-}
-
-func (k *Key) Open(ctx context.context.Context)  (Servlet, error) {
-	//TODO implement me
-	panic("implement me")
 }
 
 // newKey simply return a key object with given values.
